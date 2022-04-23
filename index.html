@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Java Script Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+      .hide {
+        display: none;
+
+      }
+           
+    </style>
+  </head>
+
+  <body>
+    
+        <!-- landing page -->
+        <!-- Start button -->
+      <section id= "landing-page">
+        <h1>JavaScript QUIZ</h1>
+        <h3>Try to answer the following JavaScript related questions within the time frame.
+          <br>Keep in mind that if you choose the wrong answer,10 seconds will be taken away. 
+          <br>Good Luck! </h3>
+        <button id="btn-start">Start</button>
+      </section>
+
+      
+      <!-- quiz section or question page -->
+      <section class="hide" id="question-page">
+        <h2>Time left: <span id="span-timer">45</span>s</h2>
+      <!-- title / question -->  
+        <h3 id="question-title"></h3>
+      <!-- choices -->
+      <!-- list of buttons -->  
+          <ul id="choices-list">
+          </ul>
+      </section>
+      
+      <!-- timer -->
+
+      <!-- enter initial page / end game page-->
+      <section class="hide" id="end-game-page">
+        <!-- input---Type in player's name -->
+        <input placeholder="Your Initials" type="text" id="input-user-name">
+        <!-- submit button -->
+        <button id="btn-submit-name">Submit</button>
+      </section>
+      
+          
+      <!-- high score page -->
+      <!-- list of existing hs -->
+      <section class="hide" id="highscore-page">
+        <ol id="highscore-list">
+          <li>Juanita -- 0</li>
+          <li>Pedrito -- 10</li>
+          <li>Carlitos -- 20</li>
+        </ol>
+    </section>
+
+    <script src="quizquestions.js"></script>
+    <script src="script.js"></script>
+  
+  </body>    
+</html>   

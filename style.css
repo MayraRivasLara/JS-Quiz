@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+/* :root {
+    background-color: rgb(189, 225, 230);
+    align-items: center;
+} */
+
+* {
+   background-color:rgb(136, 243, 232);
+   text-align: center; 
+   margin: 20pt;
+   padding: 2pt;
+   font-size: 100%;
+   font-family: 'Nova Square', cursive;
+}
+
+ h1 {
+    font-size: 60px;
+    color:rgb(49, 49, 49);
+    margin-bottom: 5rem;
+    align-content:flex-end;
+}
+h2 {
+    font-size: 30px;
+    color: tomato;
+}
+
+h3 {
+    font-size:20px;
+    margin-bottom:4rem;
+    color:rgb(11, 95, 95);
+}
+
+#btn-start {
+    background-color: rgb(2, 2, 87);
+    font-weight: bold;
+    color:greenyellow;
+    display:inline-block;
+    padding: 15px;
+    border-radius: 8px;
+
+}
+/* TODO: target btn-choice from the list*/
+#btn-choice {
+    background-color: rgb(243, 247, 199); 
+    border-radius: 8px;
+    color: black;
+}
+
+
+#btn-submit-name {
+    color: blue;
+    background-color:rgb(216, 216, 24);
+    font-weight: bold;
+    display:inline-block;
+    padding: 15px;
+    border-radius: 8px;
+
+}
+
+
+
+
