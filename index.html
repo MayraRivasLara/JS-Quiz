@@ -19,6 +19,7 @@
     
         <!-- landing page -->
         <!-- Start button -->
+        <!-- timer -->
       <section id= "landing-page">
         <h1>JavaScript QUIZ</h1>
         <h3>Try to answer the following JavaScript related questions within the time frame.
@@ -37,14 +38,21 @@
       <!-- list of buttons -->  
           <ul id="choices-list">
           </ul>
-      </section>
+          
+        <!-- feedback -->
+        <div id="feedback-comment"></div>
       
-      <!-- timer -->
+    </section>
 
-      <!-- enter initial page / end game page-->
+      
+
+      <!-- end game page / enter initials -->
       <section class="hide" id="end-game-page">
-        <!-- input---Type in player's name -->
-        <input placeholder="Your Initials" type="text" id="input-user-name">
+          <h3>Congratulations! You completed The JavaScript QUIZ!!</h3>
+        <!-- Display Score -->
+        <h5>Your score: <span id="score"></span></h5>
+        <!-- input---Type in player's Name/initials -->
+        <input placeholder="Your Name" type="text" id="input-user-name">
         <!-- submit button -->
         <button id="btn-submit-name">Submit</button>
       </section>
@@ -53,11 +61,13 @@
       <!-- high score page -->
       <!-- list of existing hs -->
       <section class="hide" id="highscore-page">
+          <h5>Top Players</h5>
         <ol id="highscore-list">
           <li>Ben -- 0</li>
           <li>Sam -- 10</li>
           <li>Charlie -- 20</li>
         </ol>
+        <button id="restart">Restart the Quiz</button>
     </section>
 
     <script src="quizquestions.js"></script>
