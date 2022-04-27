@@ -1,17 +1,21 @@
 const btnStart = document.getElementById("btn-start");
 const landingPage = document.getElementById("landing-page");
-const questionPage = document.getElementById("question-page");
-const answerFeedback = document.getElementById("feedback-comment");
-const endGamePage = document.getElementById("end-game-page");
 const spanTimer = document.getElementById("span-timer");
-const choicesList = document.getElementById("choices-list");
+
+const questionPage = document.getElementById("question-page");
 const questionTitle = document.getElementById("question-title");
+const choicesList = document.getElementById("choices-list");
+const answerFeedback = document.getElementById("feedback-comment");
+
+const endGamePage = document.getElementById("end-game-page");
+let userScore = document.getElementById("score");
+let inputUserName = document.getElementById("input-user-name");
 const btnSubmitName = document.getElementById("btn-submit-name");
-const inputUserName = document.getElementById("input-user-name");
 const userName = document.getElementById("user-name");
-const userScore = document.getElementById("score");
+
 const highscorePage = document.getElementById("highscore-page");
 const highscoreList = document.getElementById("highscore-list");
+const restartButton = document.getElementById("restart");
 
 let timeRemaining = 60; // 60 seconds
 spanTimer.textContent = timeRemaining;
@@ -111,7 +115,7 @@ function startTimer() {
     // timeRemaining--;
     timeRemaining = timeRemaining - 1;
 
-    // when the timeleft is less <0
+    // when the time left is less <0
     if (timeRemaining < 0) {
       // end the game
       endGame();
@@ -155,7 +159,7 @@ btnSubmitName.addEventListener("click", function (event) {
 
   let highscoreList = JSON.parse(localStorage.getItem("highscore-list"));
   if (highscoreList === null) {
-      highscoreList = [];
+    highscoreList = [];
   }
 
   // save the user name to the hs list --- local storage
@@ -166,19 +170,18 @@ btnSubmitName.addEventListener("click", function (event) {
 
   // Highscore is the end game score.
   // highscore should contain user name and score.
-function displayHighScore() {
+  function displayHighScore() {
     clearInterval(timerId);
     timeRemaining.inputUserName = 0;
-    highscoreList.classList.remove('hide');
-    endGamePage.classList.add('hide');
-
-}
+    highscoreList.classList.remove("hide");
+    endGamePage.classList.add("hide");
+  }
   //  Array of names + scores
 
-  const highScore = ["userName", "score"]
+  const highScore = ["userName", "score"];
 
-  const highScore = {userName:"Name", score:0}
-  document.getElementById(),this.innerHTML = highScore;
+  const highScore = { userName: "Name", score: 0 };
+  document.getElementById(), (this.innerHTML = highScore);
 
   // show the highscore page
 });
@@ -188,13 +191,12 @@ function displayHighScore() {
 // render it as a list
 
 // user can play again by clicking play again button
-restartButton.addEventListener('click', function (event) {
-    clearInterval(timerInterval);
-    timeRemaining = 60;
-    timerElement.textContent = timeRemaining;
-    endGamePage.classList.add('hide');
-    highScores.classList.add('hide');
-    landingPage.classList.remove('hide');
-    questionIndex = 0;
+restartButton.addEventListener("click", function (event) {
+  clearInterval(timerInterval);
+  timeRemaining = 60;
+  timerElement.textContent = timeRemaining;
+  endGamePage.classList.add("hide");
+  highScores.classList.add("hide");
+  landingPage.classList.remove("hide");
+  questionIndex = 0;
 });
-

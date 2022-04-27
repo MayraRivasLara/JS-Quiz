@@ -1,12 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
 
-/* :root {
-    background-color: rgb(189, 225, 230);
-    align-items: center;
-} */
 
 * {
-   background-color:rgb(136, 243, 232);
+   background-color:#e2e2e2;
    text-align: center; 
    margin: 20pt;
    padding: 2pt;
@@ -15,26 +11,28 @@
 }
 
  h1 {
-    font-size: 60px;
-    color:rgb(49, 49, 49);
+    font-size: 50px;
+    background-color: #002032;
+    color: #ffffff;
     margin-bottom: 5rem;
     align-content:flex-end;
 }
 h2 {
     font-size: 30px;
-    color: tomato;
+    color:#767a76;
 }
 
 h3 {
     font-size:20px;
+    background-color:#c7d3d8;
     margin-bottom:4rem;
-    color:rgb(11, 95, 95);
+    color:#767a76;
 }
 
 #btn-start {
-    background-color: rgb(2, 2, 87);
+    background-color:#ffdb9e;
     font-weight: bold;
-    color:greenyellow;
+    color:#002032;
     display:inline-block;
     padding: 15px;
     border-radius: 8px;
@@ -42,15 +40,15 @@ h3 {
 }
 /* TODO: target btn-choice from the list*/
 #btn-choice {
-    background-color: rgb(243, 247, 199); 
+    background-color: #ffdb9e; 
     border-radius: 8px;
-    color: black;
+    color: #002032;
 }
 
 
 #btn-submit-name {
-    color: blue;
-    background-color:rgb(216, 216, 24);
+    color: #002032;
+    background-color:#ffdb9e;
     font-weight: bold;
     display:inline-block;
     padding: 15px;
