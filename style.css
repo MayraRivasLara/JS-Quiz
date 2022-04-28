@@ -30,6 +30,7 @@ h3, p {
     margin-top: 60px;
     line-height: 50px;
     color:#767a76;
+  
 }
 
 #btn-start {
@@ -50,15 +51,10 @@ h3, p {
     color: azure;
 }
 
-/* TODO: target btn-choice from the list*/
-/* #btn-choice {
-    background-color: #ffdb9e; 
-    border-radius: 8px;
-    color: #002032;
-    display: none;
-} */
-
-#choice-1, #choice-2, #choice-3, #choice-4  {
+#choice-1, 
+#choice-2, 
+#choice-3, 
+#choice-4 {
     background-color: #ffdb9e;
     margin: 20px 10px 10px 10px;
     border: solid 3px black;
@@ -71,7 +67,10 @@ h3, p {
     display: none;
 }
 
-#choice-1:hover, #choice-2:hover, #choice-3:hover, #choice-4:hover {
+#choice-1:hover, 
+#choice-2:hover, 
+#choice-3:hover, 
+#choice-4:hover {
     background-color: #104768;
     color: azure;
 }

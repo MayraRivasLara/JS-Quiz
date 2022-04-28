@@ -5,6 +5,7 @@ const spanTimer = document.getElementById("span-timer");
 const questionPage = document.getElementById("question-page");
 const questionTitle = document.getElementById("question-title");
 const choicesList = document.getElementById("choices-list");
+const choicesButtons = document.getElementById("choices.buttons");
 const answerFeedback = document.getElementById("feedback-comment");
 
 const endGamePage = document.getElementById("end-game-page");
@@ -97,6 +98,7 @@ function renderQuestion(questionIndex) {
   }
 }
 
+//end game page
 function endGame() {
   // stop the timer
   clearInterval(timerId);
@@ -170,18 +172,15 @@ btnSubmitName.addEventListener("click", function (event) {
 
   // Highscore is the end game score.
   // highscore should contain user name and score.
-  function displayHighScore() {
-    clearInterval(timerId);
-    timeRemaining.inputUserName = 0;
-    highscoreList.classList.remove("hide");
-    endGamePage.classList.add("hide");
-  }
-  //  Array of names + scores
-
-  const highScore = ["userName", "score"];
-
-  const highScore = { userName: "Name", score: 0 };
-  document.getElementById(), (this.innerHTML = highScore);
+  // function displayHighScore() {
+  //   clearInterval(timerId);
+  //   timeRemaining.inputUserName = 0;
+  //   highscoreList.classList.remove("hide");
+  //   endGamePage.classList.add("hide");
+  // }
+  // //  Array of names + scores
+  // const highScore = { userName: "Name", score: 0 };
+  // document.getElementById(), (this.innerHTML = highScore);
 
   // show the highscore page
 });
@@ -191,12 +190,12 @@ btnSubmitName.addEventListener("click", function (event) {
 // render it as a list
 
 // user can play again by clicking play again button
-restartButton.addEventListener("click", function (event) {
-  clearInterval(timerInterval);
-  timeRemaining = 60;
-  timerElement.textContent = timeRemaining;
-  endGamePage.classList.add("hide");
-  highScores.classList.add("hide");
-  landingPage.classList.remove("hide");
-  questionIndex = 0;
-});
+// restartButton.addEventListener("click", function (event) {
+//   clearInterval(timerInterval);
+//   timeRemaining = 60;
+//   timerElement.textContent = timeRemaining;
+//   endGamePage.classList.add("hide");
+//   highScores.classList.add("hide");
+//   landingPage.classList.remove("hide");
+//   questionIndex = 0;
+// });
