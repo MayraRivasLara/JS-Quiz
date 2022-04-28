@@ -51,26 +51,19 @@ h3, p {
     color: azure;
 }
 
-#choice-1, 
-#choice-2, 
-#choice-3, 
-#choice-4 {
+
+.btn-choice {
     background-color: #ffdb9e;
     margin: 20px 10px 10px 10px;
-    border: solid 3px black;
     border-radius: 8px;
     color: #002032;
     font-size: 20px;
-    font-weight: bold;
     height: 65px;
-    width: 200px;
-    display: none;
+    width: 300px;
+    
 }
 
-#choice-1:hover, 
-#choice-2:hover, 
-#choice-3:hover, 
-#choice-4:hover {
+.btn-choice:hover {
     background-color: #104768;
     color: azure;
 }

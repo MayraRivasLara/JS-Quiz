@@ -33,7 +33,7 @@ const questions = [
         isAnswer: false,
       },
       {
-        title: "Both the <head> and the <body> section are correct",
+        title: "Both <head> and <body> are correct",
         isAnswer: true,
       },
       {
@@ -61,15 +61,15 @@ const questions = [
 
     choices: [
       {
-        title: "//This is a comment",
+        title: "// Comment",
         isAnswer: true,
       },
       {
-        title: "'This is a comment'",
+        title: "'Comment'",
         isAnswer: false,
       },
       {
-        title: "<!-- This is a comment --!>",
+        title: "<!-- Comment --!>",
         isAnswer: false,
       },
     ],
