@@ -12,7 +12,6 @@ const endGamePage = document.getElementById("end-game-page");
 let userScore = document.getElementById("score");
 let inputUserName = document.getElementById("input-user-name");
 const btnSubmitName = document.getElementById("btn-submit-name");
-const userName = document.getElementById("user-name");
 
 const highscorePage = document.getElementById("highscore-page");
 const highscoreList = document.getElementById("highscore-list");
@@ -141,7 +140,39 @@ btnStart.addEventListener("click", function (event) {
   renderQuestion(CurrentQuestion);
 });
 
-// end game screen
+//todo:
+let scores = [];
+
+// function that compare scores
+function higherScore(x, y) {
+  return btnStart.score - a.score;
+}
+
+// display scores function
+function displayScores() {
+  hide(landingPage);
+  hide(questionPage);
+  hide(endGamePage);
+
+  //empty the score list
+  scoreList.innerHTML = "";
+
+  // set scores in descending order
+  scores.sort(higherScore);
+
+  // Loop through until scores are all displayed, incrementing one per time
+  for (let index = 0; index < scores.length; index++) {
+    const li = document.createElement("li");
+
+    // populate list element with score
+    li.textContent = scores[index].initials + "-" + scores[index].score;
+
+    scoreList.appendChild(li);
+  }
+  // evita que se produzca la ventanita del final.
+  show(highscorePage);
+}
+
 // when the user clicks on the submit btn
 
 btnSubmitName.addEventListener("click", function (event) {
