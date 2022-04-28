@@ -6,7 +6,7 @@
 
 const questions = [
   {
-    title: "Inside of wich HTML element do we put the Java Script?",
+    title: "Inside of which HTML element do we put the JavaScript?",
 
     choices: [
       {

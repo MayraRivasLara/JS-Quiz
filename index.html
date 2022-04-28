@@ -3,8 +3,10 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Java Script Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JavaScript Quiz</title>
+    <link rel="stylesheet" href="./reset.css"/>
+    <link rel="stylesheet" href="style.css"/>
     
     <style>
       .hide {
@@ -20,27 +22,32 @@
         <!-- landing page -->
         <!-- Start button -->
         <!-- timer -->
-      <section id= "landing-page">
+      <header id= "landing-page">
         <h1>JavaScript QUIZ</h1>
-        <h3>Try to answer the following JavaScript related questions within the time frame.
-          <br>Keep in mind that if you choose the wrong answer,10 seconds will be taken away. 
-          <br>Good Luck! </h3>
+        
+          <p>Try to answer the following JavaScript related questions within the time frame.
+          <br>Keep in mind that if you choose the wrong answer, 10 seconds will be taken away. 
+          <br>Good Luck! </p>
         <button id="btn-start">Start</button>
-      </section>
+      </header>
 
       
-      <!-- quiz section or question page -->
+      <!-- quiz page -->
       <section class="hide" id="question-page">
-        <h2>Time left: <span id="span-timer">45</span>s</h2>
+        <h2>Time left: <span id="span-timer">60</span>s</h2>
       <!-- title / question -->  
         <h3 id="question-title"></h3>
       <!-- choices -->
       <!-- list of buttons -->  
-          <ul id="choices-list">
-          </ul>
-          
+      <li class="choices">
+        <button class="choices-list" id="choice-1">Choice 1</button>
+        <button class="choices-list" id="choice-2">Choice 2</button>
+        <button class="choices-list" id="choice-3">Choice 3</button>
+        <button class="choices-list" id="choice-4">Choice 4</button>
+      </li>
+               
         <!-- feedback -->
-        <div id="feedback-comment"></div>
+        <div id="comment"></div>
       
     </section>
 
@@ -50,19 +57,18 @@
       <section class="hide" id="end-game-page">
           <h3>Congratulations! You completed The JavaScript QUIZ!!</h3>
         <!-- Display Score -->
-        <h5>Your score: <span id="score"></span></h5>
+        <h5>Your score: <span id="user-score"></span></h5>
         <!-- input---Type in player's Name/initials -->
-        <input placeholder="Your Name" type="text" id="input-user-name">
+        <input placeholder="Your Name" type="text" id="initials">
         <!-- submit button -->
         <button id="btn-submit-name">Submit</button>
       </section>
       
           
       <!-- high score page -->
-      <!-- list of existing hs -->
-      <section class="hide" id="highscore-page">
+        <section class="hide" id="highscore-page">
           <h5>Top Players</h5>
-        <ol id="highscore-list">
+        <ol id="highscores">
           <li>Ben -- 0</li>
           <li>Sam -- 10</li>
           <li>Charlie -- 20</li>
