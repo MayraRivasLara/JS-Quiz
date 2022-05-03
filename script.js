@@ -97,18 +97,6 @@ function renderQuestion(questionIndex) {
   }
 }
 
-//end game page
-function endGame() {
-  // stop the timer
-  clearInterval(timerId);
-
-  // hide the question page
-  questionPage.classList.add("hide");
-
-  // show the end game screen
-  endGamePage.classList.remove("hide");
-}
-
 function startTimer() {
   // timer is  --- a ticking clock
   // every passing second we decrease the clock by 1
@@ -140,49 +128,33 @@ btnStart.addEventListener("click", function (event) {
   renderQuestion(CurrentQuestion);
 });
 
-//todo:
-let scores = [];
+//end game page
 
-// function that compare scores
-function higherScore(x, y) {
-  return btnStart.score - a.score;
-}
+function endGame() {
+  // stop the timer
+  clearInterval(timerId);
 
-// display scores function
-function displayScores() {
-  hide(landingPage);
-  hide(questionPage);
-  hide(endGamePage);
+  // hide the question page
+  questionPage.classList.add("hide");
 
-  //empty the score list
-  scoreList.innerHTML = "";
+  // show the end game screen
+  endGamePage.classList.remove("hide");
 
-  // set scores in descending order
-  scores.sort(higherScore);
-
-  // Loop through until scores are all displayed, incrementing one per time
-  for (let index = 0; index < scores.length; index++) {
-    const li = document.createElement("li");
-
-    // populate list element with score
-    li.textContent = scores[index].initials + "-" + scores[index].score;
-
-    scoreList.appendChild(li);
-  }
-  // evita que se produzca la ventanita del final.
-  show(highscorePage);
+  // set score for user based on time left.
+  userScore.textContent = timeRemaining;
 }
 
 // when the user clicks on the submit btn
 
 btnSubmitName.addEventListener("click", function (event) {
+  
   event.preventDefault();
-  const userInput = inputUserName.value;
-  console.log(userInput);
+  
+  const userName = document.getElementById("input-user-name").value;
 
   // if user didn't enter anything in the field
 
-  if (userInput == "") {
+  if (userName == "") {
     // (show the error message under the input)
     alert("Please enter your name or initials!");
 
@@ -190,43 +162,55 @@ btnSubmitName.addEventListener("click", function (event) {
     throw "empty input";
   }
 
-  let highscoreList = JSON.parse(localStorage.getItem("highscore-list"));
-  if (highscoreList === null) {
-    highscoreList = [];
+  // hide end game page
+  endGamePage.classList.add("hide");
+
+  // Show high score page
+  highscorePage.classList.remove("hide");
+
+
+  // render highscores in a list - Add the new score to the existing scores - if exist.
+  // Local Storage
+
+  let previousHighScores = JSON.parse(localStorage.getItem("highscore-list"));
+
+  if (previousHighScores === null) {
+    previousHighScores = [];
   }
 
-  // save the user name to the hs list --- local storage
-  localStorage.setItem("userName", userInput);
-  localStorage.setItem("score", "data-is-correct");
+  const topPlayer = {
+    name: userName,
+    score: timeRemaining,
+  };
 
-  console.log(score);
+  previousHighScores.push(topPlayer);
 
-  // Highscore is the end game score.
-  // highscore should contain user name and score.
-  // function displayHighScore() {
-  //   clearInterval(timerId);
-  //   timeRemaining.inputUserName = 0;
-  //   highscoreList.classList.remove("hide");
-  //   endGamePage.classList.add("hide");
+  localStorage.setItem("highscore-list", JSON.stringify(previousHighScores));
+
+   
+  
+  //   const topScoresList = localStorage.getItem("highscore-list");
+  //   const highScoreData = JSON.parse(topScoresList);
+
+  //   highscoreList.textContent = "";
+  //   for (let index = 0; index < highScoreData.length; index++) {
+  //     const topScore = highScore[index];
+
+  //     const list = document.createElement("li");
+
+  //     list.textContent = topScore.userName + "-" + topScore.score;
+
+  //     highscoreList.append(li);
+  //   }
   // }
-  // //  Array of names + scores
-  // const highScore = { userName: "Name", score: 0 };
-  // document.getElementById(), (this.innerHTML = highScore);
 
-  // show the highscore page
+  // highScoreList.sort();
+
+  // if (highScoreList.length > 10) {
+  //   highScoreList.shift();
+  // }
+
+  // localStorage.setItem("highScores", JSON.stringify(highScoreList))
+
+  // console.log(userScore);
 });
-
-// highscore page
-// grab the items from local storage
-// render it as a list
-
-// user can play again by clicking play again button
-// restartButton.addEventListener("click", function (event) {
-//   clearInterval(timerInterval);
-//   timeRemaining = 60;
-//   timerElement.textContent = timeRemaining;
-//   endGamePage.classList.add("hide");
-//   highScores.classList.add("hide");
-//   landingPage.classList.remove("hide");
-//   questionIndex = 0;
-// });

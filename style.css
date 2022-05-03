@@ -91,6 +91,21 @@ h5 {
     color: azure;
 }
 
+#restart {
+    color: #002032;
+    background-color:#ffdb9e;
+    font-weight: bold;
+    display:inline-block;
+    padding: 15px;
+    border-radius: 8px;
+
+}
+
+#restart:hover {
+    background-color: #104768;
+    color: azure;
+}
+
 
 
 
