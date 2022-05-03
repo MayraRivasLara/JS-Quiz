@@ -188,6 +188,17 @@ btnSubmitName.addEventListener("click", function (event) {
   localStorage.setItem("highscore-list", JSON.stringify(previousHighScores));
 
    
+
+  restartButton.addEventListener("click", function (event) {
+  
+    event.preventDefault();
+        
+    // Hide high score page
+    highscorePage.classList.add("hide");
+    
+    // show landing page
+    landingPage.classList.remove("hide");
+  })
   
   //   const topScoresList = localStorage.getItem("highscore-list");
   //   const highScoreData = JSON.parse(topScoresList);
