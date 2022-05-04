@@ -10,7 +10,7 @@ const answerFeedback = document.getElementById("feedback-comment");
 
 const endGamePage = document.getElementById("end-game-page");
 let userScore = document.getElementById("score");
-let inputUserName = document.getElementById("input-user-name");
+let userName = document.getElementById("input-user-name");
 const btnSubmitName = document.getElementById("btn-submit-name");
 
 const highscorePage = document.getElementById("highscore-page");
@@ -145,15 +145,12 @@ function endGame() {
 }
 
 // when the user clicks on the submit btn
-
 btnSubmitName.addEventListener("click", function (event) {
-  
   event.preventDefault();
-  
+
   const userName = document.getElementById("input-user-name").value;
 
-  // if user didn't enter anything in the field
-
+  //if user didn't enter initials or name.
   if (userName == "") {
     // (show the error message under the input)
     alert("Please enter your name or initials!");
@@ -168,60 +165,48 @@ btnSubmitName.addEventListener("click", function (event) {
   // Show high score page
   highscorePage.classList.remove("hide");
 
-
-  // render highscores in a list - Add the new score to the existing scores - if exist.
-  // Local Storage
-
-  let previousHighScores = JSON.parse(localStorage.getItem("highscore-list"));
-
-  if (previousHighScores === null) {
-    previousHighScores = [];
-  }
-
-  const topPlayer = {
+  const finalScore = {
     name: userName,
     score: timeRemaining,
   };
 
-  previousHighScores.push(topPlayer);
+  localStorage.setItem("highscores", JSON.stringify(finalScore)) || [];
+  displayList();
 
-  localStorage.setItem("highscore-list", JSON.stringify(previousHighScores));
+  console.log(finalScore);
+});
 
-   
+function displayList() {
+  clearInterval(timerId);
+  spanTimer.textContent = 0;
 
-  restartButton.addEventListener("click", function (event) {
-  
-    event.preventDefault();
-        
-    // Hide high score page
-    highscorePage.classList.add("hide");
-    
-    // show landing page
-    landingPage.classList.remove("hide");
-  })
-  
-  //   const topScoresList = localStorage.getItem("highscore-list");
-  //   const highScoreData = JSON.parse(topScoresList);
+  highscorePage.classList.remove("hide");
+  endGamePage.classList.add("hide");
 
-  //   highscoreList.textContent = "";
-  //   for (let index = 0; index < highScoreData.length; index++) {
-  //     const topScore = highScore[index];
+  const highScoreDS = localStorage.getItem("highscores");
+  const highScoreD = JSON.parse(highScoreDS);
 
-  //     const list = document.createElement("li");
+  highscoreList.textContent = "";
+  for (let index = 0; index < highScoreD.length; index++) {
+    const highScore = highScoreD[index];
 
-  //     list.textContent = topScore.userName + "-" + topScore.score;
+    const li = document.createElement("li");
+    li.textContent = highScore.name + "-" + highScore.score;
 
-  //     highscoreList.append(li);
-  //   }
-  // }
+    highscoreList.append(li);
+  }
+}
 
-  // highScoreList.sort();
+// When user clicks on the restart btn
+restartButton.addEventListener("click", function (event) {
+  timeRemaining = 60;
+  // spanTimer.textContent = timeRemaining;
+  CurrentQuestion = 0;
+  // endGamePage.classList.add("hide");
 
-  // if (highScoreList.length > 10) {
-  //   highScoreList.shift();
-  // }
+  // Hide high score page
+  highscorePage.classList.add("hide");
 
-  // localStorage.setItem("highScores", JSON.stringify(highScoreList))
-
-  // console.log(userScore);
+  // show landing page
+  landingPage.classList.remove("hide");
 });
