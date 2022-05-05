@@ -171,31 +171,11 @@ btnSubmitName.addEventListener("click", function (event) {
   };
 
   localStorage.setItem("highscores", JSON.stringify(finalScore)) || [];
-  displayList();
-
+  
   console.log(finalScore);
+
+
 });
-
-function displayList() {
-  clearInterval(timerId);
-  spanTimer.textContent = 0;
-
-  highscorePage.classList.remove("hide");
-  endGamePage.classList.add("hide");
-
-  const highScoreDS = localStorage.getItem("highscores");
-  const highScoreD = JSON.parse(highScoreDS);
-
-  highscoreList.textContent = "";
-  for (let index = 0; index < highScoreD.length; index++) {
-    const highScore = highScoreD[index];
-
-    const li = document.createElement("li");
-    li.textContent = highScore.name + "-" + highScore.score;
-
-    highscoreList.append(li);
-  }
-}
 
 // When user clicks on the restart btn
 restartButton.addEventListener("click", function (event) {
