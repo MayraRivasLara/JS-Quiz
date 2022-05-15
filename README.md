@@ -6,7 +6,7 @@ JS-Quiz is a typical Quiz, it is timed and includes multiple-choice questions. T
 
 ## Usage
 
-Click on the following link. This will take you to the JS-Quiz page and you will be able to click on the start button to initiate the quiz. Good luck!
+Click on the following link. This will take you to the JS-Quiz page and you will be able to click on the start button to initiate the quiz.<br> Good luck!<br>
 [Link](https://mayrarivaslara.github.io/JS-Quiz/)
 
 ![JSQuiz1](https://user-images.githubusercontent.com/94599271/168464888-45c1afd3-b0a3-4acb-b593-888dc0f2e3b2.png)
