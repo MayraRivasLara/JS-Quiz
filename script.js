@@ -13,8 +13,8 @@ let userScore = document.getElementById("score");
 let userName = document.getElementById("input-user-name");
 const btnSubmitName = document.getElementById("btn-submit-name");
 
-const highscorePage = document.getElementById("highscore-page");
-const highscoreList = document.getElementById("highscore-list");
+const savedScorePage = document.getElementById("highscore-page");
+const preScoresList = document.getElementById("pre-scores");
 const restartButton = document.getElementById("restart");
 
 let timeRemaining = 60; // 60 seconds
@@ -147,35 +147,57 @@ function endGame() {
 // when the user clicks on the submit btn
 btnSubmitName.addEventListener("click", function (event) {
   event.preventDefault();
+  
+  const name = document.getElementById("input-user-name").value;
 
-  const userName = document.getElementById("input-user-name").value;
-
-  //if user didn't enter initials or name.
-  if (userName == "") {
-    // (show the error message under the input)
-    alert("Please enter your name or initials!");
-
-    // throw an error
-    throw "empty input";
+  let preScores = JSON.parse(localStorage.getItem("previous-scores"));
+  if (preScores === null) {
+    preScores = [];
   }
 
-  // hide end game page
-  endGamePage.classList.add("hide");
-
-  // Show high score page
-  highscorePage.classList.remove("hide");
-
-  const finalScore = {
-    name: userName,
+   const highscores = {
+    name: name,
     score: timeRemaining,
   };
 
-  localStorage.setItem("highscores", JSON.stringify(finalScore)) || [];
-  
-  console.log(finalScore);
+  preScores.push(highscores);
 
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+  scoresBoard();
+  
+  //if user didn't enter initials or name.
+ if (userName == "") {
+  // (show the error message under the input)
+  alert("Please enter your name or initials!");
+
+  // throw an error in console
+  throw "empty input";
+  
+}
+
+  function scoresBoard() {
+    clearInterval(timeRemaining);
+    timerId.textContent = 0;
+    savedScorePage.classList.remove("hide");
+    endGamePage.classList.add("hide");
+
+    // Display list
+    const highscoreDataString = localStorage.getItem("highscores");
+    const highscoreDt = JSON.parse(highscoreDataString);
+
+    preScoresList.textContent = "";
+    for (let index = 0; index < highscoreDt.length; index++) {
+      const highscores = highscoreDt[index];
+
+      const li = document.createElement("li");
+      li.textContent = highscores.name + "-" + highscores.score;
+
+      preScoresList.append(li);
+    }
+  }
 
 });
+
 
 // When user clicks on the restart btn
 restartButton.addEventListener("click", function (event) {
@@ -185,7 +207,7 @@ restartButton.addEventListener("click", function (event) {
   // endGamePage.classList.add("hide");
 
   // Hide high score page
-  highscorePage.classList.add("hide");
+  savedScorePage.classList.add("hide");
 
   // show landing page
   landingPage.classList.remove("hide");
