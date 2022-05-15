@@ -2,7 +2,7 @@
 
 ## Description
 
-JS-Quiz is a typical coding assessment which is timed and includes multiple-choice questions. This app runs in the browser and features dynamically updated HTML and CSS powered by JSJavaScript.
+JS-Quiz is a typical Quiz, it is timed and includes multiple-choice questions. This application runs in the browser and features dynamically updated HTML and CSS powered by JSJavaScript.
 
 ## Usage
 
